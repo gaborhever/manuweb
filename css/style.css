@@ -1,0 +1,792 @@
+:root {
+    --header: #a87c8e;
+    --header-txt: #a65372;
+    --nav: #a87c8e;
+    --nav-txt: #f7ddd2;
+    --footer: #a87c8e;
+    --h1: #a65372;
+    --h2: #a65372;
+    --button-bg:  #edd3dd;;
+    --button-border: #a65372;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+::-webkit-scrollbar-track {
+    background: #f3f3f3;
+  }
+
+::-webkit-scrollbar-thumb {
+    background: #996d7f;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--button-border);
+  }
+
+  ::-webkit-scrollbar-button:single-button {
+    background-color: var(--header-txt);
+    display: block;
+    background-size: 10px;
+    background-repeat: no-repeat;
+  }
+
+body {
+    background-color: #f3f3f3;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    color: var(--header);
+    padding: 10px 25px 30px 12px;
+}
+
+
+h2 {
+    font-family: 'Cabin', sans-serif;
+    padding: 20px 0px 20px 0px;
+    color: var(--header);
+    font-size: 38px;
+}
+
+h3 {
+    font-family: 'Cabin', sans-serif;
+    padding-bottom: 10px;
+    color: var(--header);
+    font-size: 28px;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--nav-txt);
+}
+
+
+.bold {
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+.hl {
+    color: var(--header);
+    font-size: 22px;
+    font-weight: 500;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px 10px 20px;
+    width: auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    color: var(--header-txt);
+    letter-spacing: 1px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:hover {
+    font-weight: bold;
+    transform: skewX(-10deg);
+    transition-duration: 0.4s
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.header-contact {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    color: var(--header);
+    background-color: #f3f3f3;
+}
+
+.header-contact div {
+    text-align: right;
+    line-height: 0px;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.social-top {
+    flex-grow: 1;
+    font-size: 20px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.header-contact a {
+    color: var(--header);
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: var(--nav);
+}
+
+.navbar {
+    background-color: var(--nav);
+    justify-content: flex-end; 
+}
+
+.logo {
+    padding-left: 20px;
+    box-shadow: 5px 10px #996d7f;
+}
+
+.logo img {
+    width: 130px;
+    height: 130px;
+}
+
+nav a {   
+    text-decoration: none;
+    color: var(--nav-txt);
+    margin: 10px;
+
+}
+
+nav li {
+    font-size: 19px;
+    text-align: center;
+    list-style-type: none;
+    display: inline;
+}
+
+nav a:hover {
+    color: white;
+    transition: color 0.8s;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-image: url(../img/bg1.jpg);
+}
+
+/* HAMBURGER MENÜ VEZÉRLŐ*/
+
+.hamburger-menu {
+    display: none;
+}
+
+#menu__toggle {
+    opacity: 0;
+  }
+  #menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu__box {
+    height: 460px !important;
+  }
+
+  /* Itt kell beállítani, hogy hová kerüljön a gomb */
+  .menu__btn {
+    position: relative;
+    top: -6px;
+    left: -10px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #f7ddd2;
+    transition-duration: .25s;
+  }
+
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  .menu__box {
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    top: 130px;
+    right: 0px;
+    display: block;
+    width: auto;
+    height: 0;
+    margin: 0;
+    list-style: none;
+    background-color: var(--header);
+    text-align: right;
+    opacity: 0.8;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, .4);
+    border-bottom: 7px solid #996d7f;
+    transition-duration: .25s;
+  }
+
+  .menu__item {
+    display: block;
+    padding: 12px;
+    color: #f7ddd2;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  .menu__item:hover {
+    color: white;
+    transition: color 0.8s;
+  }
+
+  /*HAMBURGER MENÜ VEZÉRLŐ VÉGE*/
+
+.social-menu {
+    padding-top: 20px;
+    display: none;
+  }
+
+.content-center-1 {
+    margin: auto;
+    width: 80%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    line-height: 1.6;
+    background-color: #f3f3f3;
+}
+
+.content-center-2 {
+    margin: auto;
+    width: 70%;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    line-height: 1.6;
+    background-color: #f3f3f3;
+}
+
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    border: 1px solid var(--header);
+    border-radius: 4px;
+    margin: 0 auto;
+    max-width: 560px;
+    padding: 20px 20px 0px 20px;
+}
+
+input, textarea {
+    flex: 1;
+    border: 1px solid var(--header);
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 10px;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+input[type=email] {
+    margin-right: 20px;
+}
+
+input:focus {
+    outline: none;
+    border: 3px solid var(--header);
+}
+
+input[type=submit] {
+    max-width: 180px;
+    border: 1px solid var(--nav-txt);
+    background-color: var(--header);
+    color: var(--nav-txt);
+    padding: 8px 5px;
+}
+
+input[type=submit]:hover {
+    color: white;
+    transition: color 0.8s;
+}
+
+textarea:focus {
+    border: 3px solid var(--header);
+}
+
+label.checkbox {
+    display: block;
+    margin-bottom: 15px;
+    padding-left: 35px;
+}
+
+.checkbox input {
+    height: 0px;
+    width: 0px;
+}
+
+.checkbox {
+    position: relative;
+    font-size: 18px;
+}
+
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    margin-left: 8px;
+    border: 1px solid var(--header);
+    border-radius: 4px;
+    background-color: white;
+}
+
+.checkbox input:checked ~ .checkmark {
+    background-color: var(--header);
+}
+
+.start-photo { 
+    width: 100%;
+    height: auto;
+}
+
+.aboutme-photo {
+    max-width: 350px;
+    height: auto;
+    float: left;
+    margin: 145px 25px 10px 0;
+    border-radius: 25px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.coaching-photo {
+    max-width: 350px;
+    border-radius: 50%;
+    border: 1px solid var(--h1);
+    float: right;
+}
+
+.contact-photo {
+    float: left;
+    margin-right: 20px;
+}
+
+.contact-photo img {
+    max-width: 350px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.contact-data {
+    width: 60%;
+    float: left;
+    color: var(--header);
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.contact-data a{
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+}
+
+.contact-data a:hover {
+    font-weight: 500;
+}
+
+.services-container {
+    text-align: center;
+    width: 100%;
+}
+
+.services-photo {
+    max-width: 100%;
+    height: auto;
+}
+
+.content-left-1 {
+    padding: 15px;
+    background-color: #f3f3f3;
+}
+
+.content-right-1 {
+    background-color: #f3f3f3;
+}
+
+.content-left-2 {
+    width: 50%;
+    padding: 15px;
+    background-color: #f3f3f3;
+}
+
+.content-right-2 {
+    width: 50%;
+    margin: auto;
+    background-color: #f3f3f3;
+}
+
+.bg-gray {
+    width: 100%;
+    height: auto;
+    background-color: #f3f3f3;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: var(--footer);
+    color: var(--nav-txt);
+
+}
+
+footer p {
+    font-size: 16px;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--nav-txt);
+}
+
+.copyright {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.icon {
+    margin: 4px;
+}
+
+.social {
+    margin: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.farsan {
+    font-family: 'Farsan', cursive;
+    font-size: 28px !important;
+}
+
+.divider {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    width: 10%;
+    height: auto;
+}
+
+.divider2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    width: 20%;
+    height: auto;
+}
+
+/* Nagy kijelző nézet */
+
+@media only screen and (min-width: 1900px) {
+    .content-center-1, .content-center-2 {
+        width: 65%;
+    }
+}
+
+/* Asztali monitor nézet */
+
+@media only screen and (max-width: 1200px) {
+
+    .menu-container {
+        justify-content: space-between;
+    }
+
+    .content-center-1, .content-center-2 {
+        width: 85%;
+    }
+
+    .aboutme-photo {
+        max-width: 350px;
+        height: auto;
+    }
+
+    .divider {
+        width: 15%;
+    }
+}
+
+@media only screen and (max-width: 1111px) {
+    .logo {
+        box-shadow: 0px 0px;
+    }
+}
+
+/* Tablet nézet */
+
+@media only screen and (max-width: 1024px) {
+
+    .menu-container {
+        justify-content: space-around;
+    }
+
+   .content-center-1 h2 {
+        padding-top: 25px;
+    }
+
+    .content-center-2 h2 {
+        padding-top: 25px;
+    }
+
+    .aboutme-photo {
+        max-width: 350px;
+        height: auto;
+        margin: 160px 25px 20px 0;
+    }
+
+    .logo {
+        padding-left: 20px;
+        box-shadow: 0px 0px ;
+    }
+
+}
+
+/* Köztes felbontás */ 
+
+@media only screen and (max-width: 958px) {
+
+    .main-content {
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .menu-container {
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .logo {
+        box-shadow: 5px 10px #996d7f;
+    }
+}
+
+/* Kis tablet nézet */
+
+@media only screen and (max-width: 768px) {
+    
+    p {
+        font-size: 16px;
+    }
+
+    li {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    button {
+        padding: 8px;
+        width: 120px;
+        font-size: 14px;
+    }
+
+    .main-content {
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .content-center-1, .content-center-2 {
+        width: 85%;
+    }
+
+    .aboutme-photo {
+        max-width: 300px;
+        height: auto;
+        margin: 160px 25px 5px 0;
+    }
+
+    .divider {
+        width: 20%;
+    }
+
+    .divider2 {
+        width: 35%;
+    }
+
+    .farsan {
+        font-size: 26px !important;
+    }
+}
+
+/* Mobil nézet */
+
+@media only screen and (max-width: 480px) {
+    
+    h2 {
+        font-size: 36px;
+        padding: 0 0 20px 0;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    .content-center-1, .content-center-2 {
+        width: 100%;
+    }
+
+    .aboutme-photo {
+        max-width: 300px;
+        height: auto;
+        margin: 50px 25px 25px 75px;
+        float: none;
+    }
+
+    .coaching-photo {
+        max-width: 250px;
+        border-radius: 0%;
+        margin: 0 0 5px 12px;
+        border: 0px solid var(--h1);
+        float: right;
+    }
+
+    .divider, .divider2 {
+        width: 40%;
+    }
+
+    .farsan {
+        font-size: 24px !important;
+    }
+
+    .social-top {
+        display: none;
+    }
+
+    .social-menu {
+        display: inline-flex;
+    }
+}
+
+/* Köztes felbontás ami beállítja a footert és a headert*/
+
+@media only screen and (max-width: 401px) {
+
+    .header-contact {
+        justify-content: center;
+        height: auto;
+    }
+
+    header a {
+        display: block;
+        text-align: center;
+    }
+
+    footer a {
+        display: block;
+    }
+
+    .social-bottom a {
+        display: inline;
+    }
+
+    .coaching-photo {
+        float: none;
+    }
+}
+
+/* Kis méretű mobil eszközök*/
+
+@media only screen and (max-width: 320px) {
+
+    .aboutme-photo {
+        max-width: 240px;
+        height: auto;
+        margin: 20px 25px 25px 25px;
+    }
+
+    .divider, .divider2 {
+        width: 50%;
+    }
+}
