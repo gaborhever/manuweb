@@ -325,7 +325,7 @@ nav a:hover {
 .contact-form {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 10px 10px;
     justify-content: center;
     border: 1px solid var(--header);
     border-radius: 4px;
@@ -339,7 +339,7 @@ input, textarea {
     border: 1px solid var(--header);
     border-radius: 4px;
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     resize: none;
     outline: none;
     box-sizing: border-box;
@@ -354,7 +354,12 @@ input[type=text] {
 }
 
 input[type=email] {
+    width: 50%;
     margin-right: 20px;
+}
+
+input[type=tel] {
+    width: 46%;
 }
 
 input:focus {
@@ -367,7 +372,7 @@ input[type=submit] {
     border: 1px solid var(--nav-txt);
     background-color: var(--header);
     color: var(--nav-txt);
-    padding: 8px 5px;
+    padding: 8px 8px;
 }
 
 input[type=submit]:hover {
@@ -383,6 +388,7 @@ label.checkbox {
     display: block;
     margin-bottom: 15px;
     padding-left: 35px;
+    font-size: 16px;
 }
 
 .checkbox input {
@@ -397,7 +403,7 @@ label.checkbox {
 
 .checkmark {
     position: absolute;
-    top: 2px;
+    top: 1px;
     left: 0;
     height: 20px;
     width: 20px;
@@ -432,27 +438,35 @@ label.checkbox {
     float: right;
 }
 
+.inline {
+    display: flex;
+}
+
 .contact-photo {
     float: left;
+    max-width: 350px;
     margin-right: 20px;
+    border: 1px solid green;
 }
 
 .contact-photo img {
     max-width: 350px;
     height: auto;
     border-radius: 4px;
+    margin-bottom: 20px;
 }
 
 .contact-data {
-    width: 60%;
-    float: left;
     color: var(--header);
     padding: 8px;
+    border: 1px solid green;
     border-radius: 4px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden; /* ezt kell megváltoztatni a media querybe  esetleg flexbox a konténerre?*/
 }
 
 .contact-data a{
+    white-space: nowrap;
     text-decoration: none;
     color: #333333;
     font-size: 16px;
@@ -584,6 +598,21 @@ footer a {
     }
 }
 
+@media only screen and (max-width: 1080px) {
+    input[type=email] {
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    input[type=tel] {
+        width: 100%;
+    }
+
+    .submit {
+        text-align: center;
+    }
+}
+
 @media only screen and (max-width: 1111px) {
     .logo {
         box-shadow: 0px 0px;
@@ -644,6 +673,20 @@ footer a {
     .logo {
         box-shadow: 5px 10px #996d7f;
     }
+
+   /* .content-left {
+        width: 100%;
+    }
+
+    .contact-photo {
+        float: left;
+        margin-right: 0px;
+    }
+
+    .contact-data {
+        float: right;
+        border: 1px solid red;
+    }*/
 }
 
 /* Kis tablet nézet */
@@ -788,5 +831,10 @@ footer a {
 
     .divider, .divider2 {
         width: 50%;
+    }
+
+    input[type=submit] {
+        max-width: 100px;
+        text-wrap: wrap;
     }
 }
