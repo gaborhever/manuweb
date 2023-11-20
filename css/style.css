@@ -82,6 +82,13 @@ header a {
     color: var(--nav-txt);
 }
 
+.main-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-image: url(../img/bg1.jpg);
+}
 
 .bold {
     font-weight: bold;
@@ -196,14 +203,6 @@ nav li {
 nav a:hover {
     color: white;
     transition: color 0.8s;
-}
-
-.main-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    background-image: url(../img/bg1.jpg);
 }
 
 /* HAMBURGER MENÜ VEZÉRLŐ*/
@@ -446,7 +445,6 @@ label.checkbox {
     float: left;
     max-width: 350px;
     margin-right: 20px;
-    border: 1px solid green;
 }
 
 .contact-photo img {
@@ -457,15 +455,18 @@ label.checkbox {
 }
 
 .contact-data {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     color: var(--header);
     padding: 8px;
-    border: 1px solid green;
     border-radius: 4px;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    overflow: hidden; /* ezt kell megváltoztatni a media querybe  esetleg flexbox a konténerre?*/
+    /*box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    overflow: hidden;
 }
 
-.contact-data a{
+.contact-data a {
     white-space: nowrap;
     text-decoration: none;
     color: #333333;
@@ -474,6 +475,12 @@ label.checkbox {
 
 .contact-data a:hover {
     font-weight: 500;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .services-container {
@@ -497,7 +504,7 @@ label.checkbox {
 
 .content-left-2 {
     width: 50%;
-    padding: 15px;
+    padding: 15px 0px 0px 15px;
     background-color: #f3f3f3;
 }
 
@@ -507,9 +514,18 @@ label.checkbox {
     background-color: #f3f3f3;
 }
 
-.bg-gray {
-    width: 100%;
-    height: auto;
+.graybox-col {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f3f3f3;
+}
+
+.graybox-row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: #f3f3f3;
 }
 
@@ -598,6 +614,13 @@ footer a {
     }
 }
 
+@media only screen and (max-width: 1260) {
+    .graybox-row {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
 @media only screen and (max-width: 1080px) {
     input[type=email] {
         width: 100%;
@@ -673,20 +696,6 @@ footer a {
     .logo {
         box-shadow: 5px 10px #996d7f;
     }
-
-   /* .content-left {
-        width: 100%;
-    }
-
-    .contact-photo {
-        float: left;
-        margin-right: 0px;
-    }
-
-    .contact-data {
-        float: right;
-        border: 1px solid red;
-    }*/
 }
 
 /* Kis tablet nézet */
@@ -703,12 +712,6 @@ footer a {
 
     h2 {
         font-size: 36px;
-    }
-
-    button {
-        padding: 8px;
-        width: 120px;
-        font-size: 14px;
     }
 
     .main-content {
